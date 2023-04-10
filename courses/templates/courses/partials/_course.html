@@ -1,0 +1,25 @@
+{% load static %}
+
+{% for course in courses  %}
+    {% if course.isActive %}
+                <div class="card-group">
+                    <div class="card mt-2 mb-1" >
+                      <img class="card-img-top" src="{{ course.image.url }}" alt="Card image cap">
+                      <div class="card-body" >
+                        <h5 class="card-title">
+                          <a href="{% url 'course_details' course.slug %}" class="link-primary"> 
+                            {{ course.title }}
+                          </a>
+                        </h5>
+                        <p class="card-text">{{ course.subtitle }}</p>
+                        
+                      </div>
+                      <div class="card-footer" >
+                        <small class="text-muted">{{ course.date }}</small>
+                      </div>
+                    </div>
+                    
+                  </div>
+    {% endif %}
+    
+{% endfor %}
